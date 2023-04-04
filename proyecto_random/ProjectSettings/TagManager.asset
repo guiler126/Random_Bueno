@@ -53,3 +53,6 @@ TagManager:
   - name: fondofake
     uniqueID: 1235978171
     locked: 0
+  - name: corona
+    uniqueID: 3142260709
+    locked: 0
