@@ -7,7 +7,7 @@ public class UI_manager : MonoBehaviour
     public static UI_manager instance;
     public GameObject menu_opciones;
     public GameObject menu_inicio;
-
+    public GameObject menu_dificultad;
 
     public void Awake()
     {
@@ -25,6 +25,7 @@ public class UI_manager : MonoBehaviour
         menu_inicio.SetActive(false);
     }
     
+    
     public void opcionesJuego()
     {
         menu_opciones.SetActive(true);
@@ -35,6 +36,7 @@ public class UI_manager : MonoBehaviour
     {
         menu_opciones.SetActive(false);
         menu_inicio.SetActive(true);
+        menu_dificultad.SetActive(false);
     }
     
     public void volverJuego()
