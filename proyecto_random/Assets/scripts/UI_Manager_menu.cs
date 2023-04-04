@@ -18,11 +18,11 @@ public class UI_Manager_menu : MonoBehaviour
       Application.Quit();
    }
 
-   public void mostrarPausa()
+   public void Update()
    {
-      if (Input.GetKey(KeyCode.P))
+      if (Input.GetKey(KeyCode.Escape))
       {
-       panel_pausa.SetActive(true);
+       panel_pausa.active = !panel_pausa.active;
          Time.timeScale = 0f;
 
          if (!panel_pausa.active)
