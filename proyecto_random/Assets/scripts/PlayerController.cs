@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
 
     public bool canJump = true;
     public float jumpValue = 0.0f;
+    private SoundManager soundManager;
+    
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     
     void Start()
     {
@@ -57,6 +63,7 @@ public class PlayerController : MonoBehaviour
             float tempy = jumpValue;
             rb.velocity = new Vector2(tempx, tempy);
             Invoke("resetjump", 0.2f);
+            soundManager.SeleccionAudio(1,0.1f);
         }
         
 
@@ -94,6 +101,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 rb.velocity = new Vector2(moveInput * walkspeed, rb.velocity.y);
+                
             }
             Animator.SetBool("walk", true);
 

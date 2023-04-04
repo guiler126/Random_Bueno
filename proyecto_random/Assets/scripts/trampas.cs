@@ -7,7 +7,12 @@ public class trampas : MonoBehaviour
     public GameObject respawn;
     public GameObject player;
     public Animator PlayerAnimator;
+    private SoundManager soundManager;
     
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
    
    
    
@@ -16,6 +21,7 @@ public class trampas : MonoBehaviour
         if (col.transform.CompareTag("Player"))
         {
             PlayerAnimator.SetTrigger("die");
+            soundManager.SeleccionAudio(2,0.2f);
 
             StartCoroutine(renacer());
 
