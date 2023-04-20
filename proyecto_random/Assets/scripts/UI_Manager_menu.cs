@@ -7,6 +7,10 @@ public class UI_Manager_menu : MonoBehaviour
 {
    public GameObject panel_pausa;
    
+   public void Start()
+   {
+      Time.timeScale = 1f;
+   }
 
    public void play(string scene)
    {
@@ -20,15 +24,26 @@ public class UI_Manager_menu : MonoBehaviour
 
    public void Update()
    {
-      if (Input.GetKey(KeyCode.Escape))
+      if (Input.GetKeyDown(KeyCode.Escape))
       {
-       panel_pausa.active = !panel_pausa.active;
+      activar_pausa();
          Time.timeScale = 0f;
-
-         if (!panel_pausa.active)
-         {
-            Time.timeScale = 1f;
-         }
       }
+      
+      if (Input.GetKeyUp(KeyCode.Escape))
+      {
+         desactivar_pausa();
+         Time.timeScale = 1f;
+      }
+   }
+
+   public void activar_pausa()
+   {
+      panel_pausa.SetActive(true);
+   }
+   
+   public void desactivar_pausa()
+   {
+      panel_pausa.SetActive(false);
    }
 }
